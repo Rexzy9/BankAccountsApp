@@ -57,7 +57,6 @@
             label2.Size = new Size(83, 28);
             label2.TabIndex = 1;
             label2.Text = "Amount:";
-            label2.Click += label2_Click;
             // 
             // OwnerTxt
             // 
@@ -66,12 +65,12 @@
             OwnerTxt.Name = "OwnerTxt";
             OwnerTxt.Size = new Size(159, 36);
             OwnerTxt.TabIndex = 2;
-            OwnerTxt.TextChanged += textBox1_TextChanged;
             // 
             // AmountNum
             // 
             AmountNum.Location = new Point(108, 235);
             AmountNum.Margin = new Padding(2, 3, 2, 3);
+            AmountNum.Maximum = new decimal(new int[] { -1530494976, 232830, 0, 0 });
             AmountNum.Name = "AmountNum";
             AmountNum.Size = new Size(147, 36);
             AmountNum.TabIndex = 3;
@@ -95,6 +94,7 @@
             DepositBtn.TabIndex = 5;
             DepositBtn.Text = "Deposit";
             DepositBtn.UseVisualStyleBackColor = true;
+            DepositBtn.Click += DepositBtn_Click;
             // 
             // WithdrawBtn
             // 
@@ -116,6 +116,7 @@
             CreateAccountBtn.TabIndex = 7;
             CreateAccountBtn.Text = "Create account";
             CreateAccountBtn.UseVisualStyleBackColor = true;
+            CreateAccountBtn.Click += CreateAccountBtn_Click;
             // 
             // Form1
             // 
