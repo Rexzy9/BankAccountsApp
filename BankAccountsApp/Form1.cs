@@ -28,35 +28,27 @@ namespace BankAccountsApp
 
         private void DepositBtn_Click(object sender, EventArgs e)
         {
-            if (BankAccountGrid.SelectedRows.Count == 1 && AmountNum.Value > 0)
+            if (BankAccountGrid.SelectedRows.Count == 1)
             {
                 BankAccount selectedBankAccount = BankAccountGrid.SelectedRows[0].DataBoundItem as BankAccount;
-
-                selectedBankAccount.Balance += AmountNum.Value;
+                string message = selectedBankAccount .Deposit(AmountNum.Value);
 
                 RefreshGrid();
                 AmountNum.Value = 0;
+                MessageBox.Show(message);
             }
         }
 
         private void WithdrawBtn_Click(object sender, EventArgs e)
         {
-            if (BankAccountGrid.SelectedRows.Count == 1 && AmountNum.Value > 0)
+            if (BankAccountGrid.SelectedRows.Count == 1)
             {
                 BankAccount selectedBankAccount = BankAccountGrid.SelectedRows[0].DataBoundItem as BankAccount;
-                if (AmountNum.Value < selectedBankAccount.Balance)
-                {
-                    selectedBankAccount.Balance -= AmountNum.Value;
+                string message = selectedBankAccount.Withdraw(AmountNum.Value);
 
-                    RefreshGrid();
-                    AmountNum.Value = 0;
-                }
-                else
-                {
-                    MessageBox.Show("Insufficient Funds");
-                }
-                
-                
+                RefreshGrid();
+                AmountNum.Value = 0;
+                MessageBox.Show(message);
             }
         }
     }
